@@ -1,0 +1,28 @@
+name: cleanup
+on:
+  push:
+    branches: ["master"]
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        provider:
+        - aws
+        - azure
+        - do
+        - gcp
+    steps:
+      - name: checkout
+        uses: actions/checkout@v1
+      - name: dependencies
+        run: setup/dependencies.sh
+      - name: provider
+        run: echo "::set-env name=PROVIDER::${{ matrix.provider }}"
+      - name: secrets
+        run: setup/secrets.sh
+        env:
+          SECRETS: ${{ toJson(secrets) }}
+      - name: cleanup
+        run: provider/${{ matrix.provider }}.sh
