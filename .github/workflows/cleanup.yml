@@ -1,7 +1,7 @@
 name: cleanup
 on:
-  push:
-    branches: ["master"]
+  # push:
+  #   branches: ["master"]
   schedule:
     - cron: "00 7 * * *"
     - cron: "30 7 * * *"
