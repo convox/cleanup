@@ -2,13 +2,12 @@
 set -ex -o pipefail
 
 # install utilities
-sudo apt-get update && sudo apt-get -y install jq python3-pip unzip
+sudo apt-get update && sudo apt-get -y install jq python3-pip python3-setuptools unzip
 
 # install aws cli
 sudo pip3 install awscli
 
 # install azure cli
-sudo pip3 install setuptools
 sudo pip3 install azure-cli
 
 # install digitalocean cli
