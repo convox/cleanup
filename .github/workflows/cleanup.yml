@@ -24,7 +24,7 @@ jobs:
       - name: dependencies
         run: setup/dependencies.sh
       - name: provider
-        run: echo "::set-env name=PROVIDER::${{ matrix.provider }}"
+        run: echo "PROVIDER=${{ matrix.provider }}" >> $GITHUB_ENV
       - name: secrets
         run: setup/secrets.sh
         env:
