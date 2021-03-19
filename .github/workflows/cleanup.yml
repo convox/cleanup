@@ -14,10 +14,10 @@ jobs:
       fail-fast: false
       matrix:
         provider:
-        - aws
-        - azure
-        - do
-        - gcp
+          - aws
+          - azure
+          - do
+          - gcp
     steps:
       - name: checkout
         uses: actions/checkout@v1
