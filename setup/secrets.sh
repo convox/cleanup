@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export_secret() {
-  echo "${1}=$(echo $SECRETS | jq -r ".${1}")" >> $GITHUB_ENV
+	echo "${2:-$1}=$(echo $SECRETS | jq -r ".${1}")" >> $GITHUB_ENV
 }
 
 case "$PROVIDER" in
